@@ -1,5 +1,4 @@
 ﻿#include <iostream>
-#include <vector>
 using namespace std;
 
 struct Tree
@@ -48,8 +47,6 @@ Tree* insertTree(Tree* root, int n)
 	}
 	return root;
 }
-
-
 
 void printTree(Tree* root)
 {
@@ -225,7 +222,7 @@ bool del(Tree* root, int value)
 	return true;
 }
 
-void Task1(vector<Tree*>&t)
+void Task1()
 {
 	const int size = 10000;
 	int balanced = 0;
@@ -238,7 +235,6 @@ void Task1(vector<Tree*>&t)
 		{
 			insertTree(root, rand() % 1000);
 		}
-		t.push_back(root);
 		if (isBalanceRoot(root))
 		{
 			balanced++;
@@ -248,7 +244,6 @@ void Task1(vector<Tree*>&t)
 }
 
 //Бинарный поиск в дереве 
-
 bool binSerch(Tree* root, int value)
 {
 	if (root == NULL)
@@ -303,19 +298,8 @@ bool recBinSerch(Tree* root, int value)
 
 int main()
 {
-	/*Tree* tr;
-	tr = creat_tree_element(5);
-	int a[5]{ 3 , 1, 7, 8, 4 };
-	for (int i = 0; i < 5; i++)
-	{
-		insertTree(tr, a[i]);
-	}
-	printTree(tr);*/
 
-	/*vector<Tree*>t;
-	Task1(t);
-	cout << t.size();*/
-	
+	Task1();
 	Tree* tr = NULL;
 	tr = insertTree(tr, 10);
 	insertTree(tr, 5);
@@ -328,6 +312,7 @@ int main()
 	del(tr, 16);
 	printTree(tr);
 	cout << endl;
+	//Task2
 	cout << boolalpha << recBinSerch(tr, 120) << endl;
 	cout << boolalpha << recBinSerch(tr, 100)<<endl;
 }
